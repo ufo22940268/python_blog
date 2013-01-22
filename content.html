@@ -1,18 +1,3 @@
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    </head>
-    <body>
-        <div id="navigation_bar">
-            <p class="navigation_item"><a href="">home</a></p>
-            <p class="navigation_item"><a href="">about</a></p>
-            <p class="navigation_item"><a href="">tags</a></p>
-        </div>
-
-        <div id="divider"></div>
-
-        <!--<iframe id="content" src="content.html"> </iframe>-->
-        <div id="content">
 <pre>Some device configurations can change during runtime (such as screen orientation, keyboard availability, and language). When such a change occurs, Android restarts the running Activity (onDestroy() is called, followed by onCreate()). The restart behavior is designed to help your application adapt to new configurations by automatically reloading your application with alternative resources that match the new device configuration.
 
             To properly handle a restart, it is important that your activity restores its previous state through the normal Activity lifecycle, in which Android calls onSaveInstanceState() before it destroys your activity so that you can save data about the application state. You can then restore the state during onCreate() or onRestoreInstanceState().
@@ -96,6 +81,3 @@
             If you don't need to update your application based on these configuration changes, you can instead not implement onConfigurationChanged(). In which case, all of the resources used before the configuration change are still used and you've only avoided the restart of your activity. However, your application should always be able to shutdown and restart with its previous state intact, so you should not consider this technique an escape from retaining your state during normal activity lifecycle. Not only because there are other configuration changes that you cannot prevent from restarting your application, but also because you should handle events such as when the user leaves your application and it gets destroyed before the user returns to it.
 
             For more about which configuration changes you can handle in your activity, see the android:configChanges documentation and the Configuration class.</pre>
-        </div>
-    </body>
-</html>

@@ -15,8 +15,7 @@
 }
 
 #content {
-    background-color:green;
-    margin-left:25%;
-    width:77%;
+    width:75%;
     height:100%;
+    border:none;
 }
