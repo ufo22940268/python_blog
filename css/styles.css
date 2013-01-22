@@ -1,0 +1,21 @@
+#navigation_bar {
+    float:left;
+}
+
+.navigation_item {
+    margin-left:40%;
+}
+
+#divider {
+    width:4px;
+    height:100%;
+    background-color:black;
+    margin-left:20%;
+    float:left;
+}
+
+#content {
+    background-color:green;
+    width:75%;
+    height:100%;
+}
