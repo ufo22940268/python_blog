@@ -1,4 +1,5 @@
 #navigation_bar {
+    position:fixed;
     float:left;
 }
 
@@ -9,13 +10,16 @@
 #divider {
     width:4px;
     height:100%;
+    position:fixed;
     background-color:black;
     margin-left:20%;
     float:left;
 }
 
 #content {
+    margin-left:25%;
     width:75%;
     height:100%;
     border:none;
+    text-align:justify;
 }

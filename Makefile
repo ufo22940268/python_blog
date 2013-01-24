@@ -1,2 +1,2 @@
 all:
-	echo "saved"
+	python main.py 1>&2
