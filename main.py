@@ -6,16 +6,24 @@ from tornado.template import Loader
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
 	loader = Loader("./")
-	self.write(loader.load("test.html").generate(**(self.buildValues())))
+	self.write(loader.load("base.html").generate(**(self.build_values())))
 
-    def buildValues(self):
-        #return dict(hongbosb="hongbosb is not sb")
-        return {"hongbosb": "hongbosb is not sbaaaaaa"}
+    def build_values(self):
+        return {"students" : ["shijie", "hongxia", "hongbo"], "test2":"test2",}
+
+class AboutHandler(tornado.web.RequestHandler):
+    def get(self):
+        loader = Loader("./")
+        self.write(loader.load("about.html").generate())
+
 
 application = tornado.web.Application([
     (r"/", MainHandler),
-    (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
+    (r"/about.html", AboutHandler),
+    (r"/index.html", MainHandler),
+    (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./static/"}),
     (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./css/"}),
+    (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js/"}),
     ]);
 
 if __name__ == "__main__":

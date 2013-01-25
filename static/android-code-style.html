@@ -1,0 +1,46 @@
+<div style="text-align:center"><h1>Grandstream 代码规范</h1></div>
+
+<h2>普通代码规范:</h2>
+
+<p>google官方doc中给出非常详细的code style. 但是因为<em>"外部的链接控制权在别人手上，今天是这个明天可能就是别的，或者干脆就没了。"</em>, 所以我把这个代码规范clone到了本地, <a href="http://192.168.120.244/java_doc/codestyle/code-style.html">传送门</a>. </p>
+
+<h2>补充:</h2>
+
+<p>涉及源码修改时的规则：</p>
+
+<ul>
+<li>代码规范，遵循源码原有的代码规范.</li>
+<li>修改代码， 需要在修改的代码前后添加以下注释.</li>
+</ul>
+
+<pre>        /*
+              * @modify  by grandstream  
+              * @oginal functions    将原先的代码注释 在这部分
+              * @desc 说明修改的原因  
+              * start modify
+              */
+ 
+             新的代码
+
+             /*
+              * end modify
+              */
+</pre>
+
+<ul>
+<li>加代码， 需要在修改的代码前后添加以下注释.</li>
+</ul>
+
+<pre>
+             /*
+              * @add  by grandstream  
+              * @desc set title for status bar
+              * start add function
+              */
+ 
+             新的代码
+
+             /*
+              * end add function
+              */
+</pre>
