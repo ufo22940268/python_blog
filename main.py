@@ -16,11 +16,16 @@ class AboutHandler(tornado.web.RequestHandler):
         loader = Loader("./")
         self.write(loader.load("about.html").generate())
 
+class HomeHandler(tornado.web.RequestHandler):
+    def get(self):
+        loader = Loader("./");
+        self.write(loader.load("home.html").generate());
 
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/about.html", AboutHandler),
     (r"/index.html", MainHandler),
+    (r"/home.html", HomeHandler),
     (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./static/"}),
     (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./css/"}),
     (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js/"}),

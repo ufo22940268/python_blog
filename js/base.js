@@ -13,12 +13,12 @@ function loadContent(type) {
         if (xmlReq.status == 200 && xmlReq.readyState == 4) {
             document.getElementById("content").innerHTML = xmlReq.responseText;
         }
-    }
+    };
 
     if (type == "about") {
         xmlReq.open("GET", "static/about.html", true);
     } else if (type == "home") {
-        xmlReq.open("GET", "static/home.html", true);
+        xmlReq.open("GET", "home.html", true);
     } else if (type == "tags") {
         xmlReq.open("GET", "static/tags.html", true);
     } else {
@@ -27,3 +27,5 @@ function loadContent(type) {
     }
     xmlReq.send();
 }
+
+window.onload = loadContent("home");
