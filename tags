@@ -65,7 +65,6 @@ $/	Session.vim	/^vnoremap $\/ `>a*\/`<i\/*$/;"	m
 $1	Session.vim	/^vnoremap $1 `>a)`<i($/;"	m
 $2	Session.vim	/^vnoremap $2 `>a]`<i[$/;"	m
 $3	Session.vim	/^vnoremap $3 `>a}`<i{$/;"	m
-$c	Session.vim	/^inoremap $c \/**$/;"	m
 $q	Session.vim	/^vnoremap $q `>a'`<i'$/;"	m
 $td	Session.vim	/^cnoremap $td tabnew ~\/Desktop\/$/;"	m
 $th	Session.vim	/^cnoremap $th tabnew ~\/$/;"	m
@@ -155,7 +154,6 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 ,cv	Session.vim	/^nmap <silent> ,cv <Plug>VCSVimDiff$/;"	m
 ,cy	Session.vim	/^nmap ,cy <Plug>NERDCommenterYank$/;"	m
 ,dd	Session.vim	/^noremap ,dd :call DebugInnerOuterContacts()$/;"	m
-,do	Session.vim	/^noremap ,do :call DebugOuterClass()$/;"	m
 ,es	Session.vim	/^nmap ,es :call EditSnippet()$/;"	m
 ,et	Session.vim	/^nmap ,et :exec "e ~\/.vim\/ftplugin\/".&filetype.".vim"$/;"	m
 ,fb	Session.vim	/^noremap ,fb viB:g!#^.*\/\/#Tabularize \/,$/;"	m
@@ -208,7 +206,7 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 ,y	Session.vim	/^map ,y :YRShow$/;"	m
 ,z	Session.vim	/^map ,z <Plug>ZoomWin$/;"	m
 0	Session.vim	/^map 0 ^$/;"	m
-05l	Session.vim	/^normal! 05l$/;"	m
+0	Session.vim	/^normal! 0$/;"	m
 <C-Tab>	Session.vim	/^inoremap <C-Tab> 	$/;"	m
 <F2>	Session.vim	/^noremap <F2> :NERDTreeToggle$/;"	m
 <F3>	Session.vim	/^noremap <F3> :NumbersToggle$/;"	m
@@ -243,7 +241,6 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 <Plug>NERDCommenterAlignLeft	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")$/;"	m
 <Plug>NERDCommenterAppend	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")$/;"	m
 <Plug>NERDCommenterComment	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")$/;"	m
-<Plug>NERDCommenterInsert	Session.vim	/^inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")$/;"	m
 <Plug>NERDCommenterInvert	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")$/;"	m
 <Plug>NERDCommenterMinimal	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")$/;"	m
 <Plug>NERDCommenterNested	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")$/;"	m
@@ -308,20 +305,22 @@ Loader	main.py	/^from tornado.template import Loader$/;"	i
 MainHandler	main.py	/^class MainHandler(tornado.web.RequestHandler):$/;"	c
 ParserTestCase	tests/test_parser.py	/^class ParserTestCase(unittest.TestCase):$/;"	c
 SessionLoad	Session.vim	/^let SessionLoad = 1$/;"	v
+TITLE_TAGS	tools/xml_parser.py	/^TITLE_TAGS = ["h1", "h2", "h3"];$/;"	v
 Template	main.py	/^from tornado.template import Template$/;"	i
 [%	Session.vim	/^vmap [% [%m'gv``$/;"	m
 ]%	Session.vim	/^vmap ]% ]%m'gv``$/;"	m
 a%	Session.vim	/^vmap a% [%v]%$/;"	m
 application	main.py	/^application = tornado.web.Application([$/;"	v
 build_values	main.py	/^    def build_values(self):$/;"	m	class:MainHandler
+clear_blog_table	db_tools.py	/^def clear_blog_table():$/;"	f
 create_db	db_tools.py	/^def create_db():$/;"	f
 cs	Session.vim	/^nmap cs <Plug>Csurround$/;"	m
-delete_db	db_tools.py	/^def delete_db():$/;"	f
 ds	Session.vim	/^nmap ds <Plug>Dsurround$/;"	m
 get	main.py	/^    def get(self):$/;"	m	class:AboutHandler
 get	main.py	/^    def get(self):$/;"	m	class:HomeHandler
 get	main.py	/^    def get(self):$/;"	m	class:MainHandler
 get_connection	db.py	/^def get_connection():$/;"	f
+get_title	tools/xml_parser.py	/^def get_title(dom, tag):$/;"	f
 gx	Session.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
 invoke_with_param	tests/test_db_tools.py	/^    def invoke_with_param(self, param):$/;"	m	class:DbToolsTest
 ioloop	main.py	/^import tornado.ioloop$/;"	i
@@ -331,10 +330,11 @@ is_argument_valid	db_tools.py	/^def is_argument_valid():$/;"	f
 loadContent	js/base.js	/^function loadContent(type) {$/;"	f
 loadXml	js/ajax.js	/^function loadXml() {$/;"	f
 loader	main.py	/^	loader = Loader(".\/")$/;"	v	class:MainHandler
-methods_dict	db_tools.py	/^methods_dict = dict(update=update_db, create=create_db);$/;"	v
-parse_title	tools/xml_parser.py	/^def parse_title():$/;"	f
+methods_dict	db_tools.py	/^methods_dict = dict(update=update_db_for_tests, create=create_db);$/;"	v
+parse	tools/xml_parser.py	/^from xml.dom.minidom import parse$/;"	i
+parse_title	tools/xml_parser.py	/^def parse_title(file_path):$/;"	f
 s:cpo_save	Session.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	Session.vim	/^let s:l = 2 - ((1 * winheight(0) + 10) \/ 20)$/;"	v
+s:l	Session.vim	/^let s:l = 5 - ((4 * winheight(0) + 16) \/ 33)$/;"	v
 s:so_save	Session.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
 s:sx	Session.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
 s:wipebuf	Session.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
@@ -347,17 +347,20 @@ test_not_valid	tests/test_db_tools.py	/^    def test_not_valid(self):$/;"	m	clas
 test_parse_title	tests/test_parser.py	/^    def test_parse_title(self):$/;"	m	class:ParserTestCase
 test_parser	tests/test_parser.py	/^def test_parser():$/;"	f
 test_update_db	tests/test_db_tools.py	/^    def test_update_db(self):$/;"	m	class:DbToolsTest
+tools	db_tools.py	/^import tools.xml_parser$/;"	i
 tornado	main.py	/^import tornado.ioloop$/;"	i
 tornado	main.py	/^import tornado.web$/;"	i
 unittest	tests/test_db_tools.py	/^import unittest$/;"	i
 unittest	tests/test_parser.py	/^import unittest$/;"	i
-update_db	db_tools.py	/^def update_db():$/;"	f
+update_db	db_tools.py	/^def update_db(folder):$/;"	f
+update_db_for_tests	db_tools.py	/^def update_db_for_tests():$/;"	f
 urlskip	static/licenses.html	/^<p><a name="urlskip"><\/a>Stable links to each license's alternative$/;"	a
 web	main.py	/^import tornado.web$/;"	i
 xmlReq	js/ajax.js	/^var xmlReq;$/;"	v
 xmlReq	js/base.js	/^var xmlReq;$/;"	v
-xmlReq.onreadystatechange	js/ajax.js	/^    }$/;"	f
-xmlReq.onreadystatechange	js/base.js	/^    }$/;"	f
+xmlReq.onreadystatechange	js/ajax.js	/^    xmlReq.onreadystatechange = function() {$/;"	f
+xmlReq.onreadystatechange	js/base.js	/^    xmlReq.onreadystatechange = function () {$/;"	f
+xml_parser	db_tools.py	/^import tools.xml_parser$/;"	i
 xml_parser	tests/test_parser.py	/^from tools import xml_parser$/;"	i
 yS	Session.vim	/^nmap yS <Plug>YSurround$/;"	m
 ySS	Session.vim	/^nmap ySS <Plug>YSsurround$/;"	m

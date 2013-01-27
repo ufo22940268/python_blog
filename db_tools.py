@@ -1,14 +1,25 @@
 import sys
 import sqlite3
+import tools.xml_parser
 from db import *;
 
-def update_db():
-    print "update_db";
+def update_db(folder):
+    clear_blog_table();
 
-def delete_db():
     conn = get_connection();
     c = conn.cursor();
-    c.execute("DROP TABLE IF EXISTS blog");
+    #Insert title to database.
+    c.execute("INSERT INTO blog(title, url) values(?, ?)", (tools.xml_parser.parse_title("tests/simple_text.html"), "tests/simple_text.html"));
+    conn.commit();
+    c.close();
+
+def update_db_for_tests():
+    update_db("tests");
+
+def clear_blog_table():
+    conn = get_connection();
+    c = conn.cursor();
+    c.execute("DELETE FROM blog");
     conn.commit();
     c.close();
 
@@ -21,7 +32,7 @@ def create_db():
     conn.commit();
     c.close();
 
-methods_dict = dict(update=update_db, create=create_db);
+methods_dict = dict(update=update_db_for_tests, create=create_db);
 
 def is_argument_valid():
     return len(sys.argv) == 2 and sys.argv[1] in methods_dict.keys();

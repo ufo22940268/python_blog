@@ -1,10 +1,22 @@
-from xml.dom.minidom import parse, parseString
+from xml.dom.minidom import parse
+
+TITLE_TAGS = ["h1", "h2", "h3"];
 
 def parse_title(file_path):
     dom = parse(file_path);
-    nodeList = dom.getElementsByTagName("h2")
-    if len(nodeList) == 0:
-        return "";
+    title = ""
+    for tag in TITLE_TAGS:
+        title = get_title(dom, tag);
+        if title is not None:
+            return title;
+
+def get_title(dom, tag):
+    elements = dom.getElementsByTagName(tag);
+    if len(elements) == 0 or len(elements[0].childNodes) == 0:
+        return None;
     else:
-        print nodeList[0].childNodes[0].data
-        return nodeList[0]
+        try: 
+            return elements[0].childNodes[0].data;
+        except Error:
+            #When the first node is not a text node, then just return empty string.            
+            return None;
