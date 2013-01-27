@@ -1,6 +1,7 @@
 import sys
 import sqlite3
 import tools.xml_parser
+import os
 from db import *;
 
 def update_db(folder):
@@ -8,13 +9,24 @@ def update_db(folder):
 
     conn = get_connection();
     c = conn.cursor();
-    #Insert title to database.
-    c.execute("INSERT INTO blog(title, url) values(?, ?)", (tools.xml_parser.parse_title("tests/simple_text.html"), "tests/simple_text.html"));
+    for f in os.listdir("./" + folder):
+        if not is_html(f): continue;
+        full_file = folder + "/" + f;
+        print full_file;
+        c.execute("INSERT INTO blog(title, url) values(?, ?)",
+                (tools.xml_parser.parse_title(full_file),
+                    full_file));
     conn.commit();
     c.close();
 
+def is_html(file_path):
+    return file_path.endswith(".html");
+
 def update_db_for_tests():
     update_db("tests");
+
+def update_db_for_blog():
+    update_db("blog");
 
 def clear_blog_table():
     conn = get_connection();
@@ -32,13 +44,22 @@ def create_db():
     conn.commit();
     c.close();
 
-methods_dict = dict(update=update_db_for_tests, create=create_db);
+def print_blog_table():
+    conn = get_connection();
+    c = conn.cursor();
+    c.execute("SELECT * FROM blog");
+    conn.commit();
+    for r in c.fetchall():
+        print r
+    c.close();
+
+methods_dict = dict(update=update_db_for_tests, create=create_db, print_blog=print_blog_table);
 
 def is_argument_valid():
     return len(sys.argv) == 2 and sys.argv[1] in methods_dict.keys();
 
 if __name__ == "__main__":
     if not is_argument_valid():
-        print "Usage: ./db_tools.py <update|create>";
+        print "Usage: ./db_tools.py <update|create|print_blog>";
     else:
         methods_dict[sys.argv[1]]()

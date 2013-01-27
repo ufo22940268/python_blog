@@ -15,8 +15,13 @@ def get_title(dom, tag):
     if len(elements) == 0 or len(elements[0].childNodes) == 0:
         return None;
     else:
-        try: 
-            return elements[0].childNodes[0].data;
-        except Error:
-            #When the first node is not a text node, then just return empty string.            
+        if elements[0].hasChildNodes():
+            node = elements[0].childNodes[0];
+            while node.hasChildNodes():
+                node = node.childNodes[0];
+            if node.nodeType == node.TEXT_NODE:
+                return node.data;
+            else:
+                return None;
+        else:
             return None;
