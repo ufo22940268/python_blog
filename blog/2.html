@@ -1,14 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <div class='blog'>
-      <h2><a href="#top" class='top'>回到顶部</a><a name="blog_61529" href="http://my.oschina.net/u/236164/blog/61529">边运行junit，边调试，蛋疼</a></h2>
-      <div class='outline'>
-      <div class='date'>时间：2012-06-08 11:06:30</div>
-      <div class='catalog'>分类：工作日志</div>
-              <div class='tags'>标签：TDD,junit,android</div>                     </div>
-      <div class='content'><p>这段时间无聊。开始用TDD模式开发android app。嘿，发现还真爽。一整天不碰device，一直就看着屏幕上出现“OK”或者“Fail&quot;的感觉还不错。</p> 
+      <h2><a name="blog_61529" class="title" href="http://my.oschina.net/u/236164/blog/61529">边运行junit，边调试，蛋疼</a></h2>
 <p>由于本人是IDE去死团团员， 所以运行junit的方式就变成了</p> 
 <p></p> 
 <pre class="brush:shell; toolbar: true; auto-links: false;">adb shell am instrument -w com.android.contacts.tests/android.test.InstrumentationTestRunner</pre> 
-<p> </p> &nbsp;运行上面的脚本之后，junit就开始跑了。不过在这之中打断点的话，dvm是不理你的。 
+<p> </p>运行上面的脚本之后，junit就开始跑了。不过在这之中打断点的话，dvm是不理你的。 
 <p></p> 
 <p>所以我又蛋疼了，蛋疼了就去google了一下，发现在运行instrument的时候还可以加上debug true的option。如下：</p> 
 <p></p> 
@@ -22,18 +18,4 @@
     <li>打断点。估计用终端下打断点和eclipse里面打断点都行。不过我是在终端下打的。</li> 
     <li>这时候instrument就自己会跑了，遇到断点的地方就会停下来。</li> 
 </ol> 
-<p></p></div>
-          <div class='commentList'>
-              <h3>评论列表</h3>
-              <div class='comment'>
-                  <div class='author'>啊达</div>
-                  <div class='date'>2012-06-08 18:17:34</div>
-                  <div class='content'>崇拜 IDE去死团</div>
-              </div>
-              <div class='comment'>
-                  <div class='author'>ufo.22940268</div>
-                  <div class='date'>2012-06-08 19:13:11</div>
-                  <div class='content'><div class=ref><h4>引用来自“啊达”的评论</h4><p>崇拜 IDE去死团</p></div>谢谢，不过应该鄙视的人更多吧。</div>
-              </div>
-          </div>
-      </div>
+</div>

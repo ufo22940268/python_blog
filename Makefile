@@ -17,3 +17,7 @@ update-db : clear-cli
 .PHONY : create-db
 create-db : clear-cli
 	python db_tools.py create
+
+.PHONY : update
+update : update
+	python tools.py. update

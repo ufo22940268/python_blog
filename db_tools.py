@@ -12,10 +12,8 @@ def update_db(folder):
     for f in os.listdir("./" + folder):
         if not is_html(f): continue;
         full_file = folder + "/" + f;
-        print full_file;
         c.execute("INSERT INTO blog(title, url) values(?, ?)",
-                (tools.xml_parser.parse_title(full_file),
-                    full_file));
+                (tools.xml_parser.parse_title(full_file).decode("utf-8"), full_file));
     conn.commit();
     c.close();
 
@@ -53,7 +51,7 @@ def print_blog_table():
         print r
     c.close();
 
-methods_dict = dict(update=update_db_for_tests, create=create_db, print_blog=print_blog_table);
+methods_dict = dict(update=update_db_for_blog, create=create_db, print_blog=print_blog_table);
 
 def is_argument_valid():
     return len(sys.argv) == 2 and sys.argv[1] in methods_dict.keys();
