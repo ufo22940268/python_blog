@@ -17,8 +17,8 @@ function loadContent(type) {
 
     if (type == "about") {
         xmlReq.open("GET", "static/about.html", true);
-    } else if (type == "home") {
-        xmlReq.open("GET", "home.html", true);
+    } else if (type == "content") {
+        xmlReq.open("GET", "content.html", true);
     } else if (type == "tags") {
         xmlReq.open("GET", "static/tags.html", true);
     } else {
@@ -28,4 +28,4 @@ function loadContent(type) {
     xmlReq.send();
 }
 
-window.onload = loadContent("home");
+window.onload = loadContent("content");

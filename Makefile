@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := all
+
 .PHONY : clear-cli
 clear-cli:
 	clear

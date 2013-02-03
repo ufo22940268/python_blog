@@ -2,7 +2,7 @@ import sys
 import sqlite3
 import tools.xml_parser
 import os
-from db import *;
+from tools.db import *;
 
 def update_db(folder):
     clear_blog_table();
