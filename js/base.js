@@ -4,6 +4,10 @@ function isRequestReady() {
     return xmlReq.status == 200 && xmlReq.readyState == 4;
 }
 
+function openBlog(blogName) {
+    xmlReq.open("GET", "blog/" + blogName + ".html", true);
+}
+
 function loadContent(type) {
     if (window.XMLHttpRequest) {
         xmlReq = new XMLHttpRequest();
@@ -15,17 +19,25 @@ function loadContent(type) {
         }
     };
 
-    if (type == "about") {
-        xmlReq.open("GET", "static/about.html", true);
-    } else if (type == "content") {
-        xmlReq.open("GET", "content.html", true);
-    } else if (type == "tags") {
-        xmlReq.open("GET", "static/tags.html", true);
+    if (isBlogType(type)) {
+        openBlog(type);
     } else {
-        alert("Invalid type.");
-        return;
+        if (type == "about") {
+            xmlReq.open("GET", "static/about.html", true);
+        } else if (type == "content") {
+            xmlReq.open("GET", "content.html", true);
+        } else if (type == "tags") {
+            xmlReq.open("GET", "static/tags.html", true);
+        } else {
+            alert("Invalid type.");
+            return;
+        }
     }
     xmlReq.send();
+}
+
+function isBlogType(type) {
+    return !isNaN(type);
 }
 
 window.onload = loadContent("content");

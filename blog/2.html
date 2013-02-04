@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <div class='blog'>
-      <h2><a name="blog_61529" class="title" href="http://my.oschina.net/u/236164/blog/61529">边运行junit，边调试，蛋疼</a></h2>
-<p>由于本人是IDE去死团团员， 所以运行junit的方式就变成了</p> 
-<p></p> 
-<pre class="brush:shell; toolbar: true; auto-links: false;">adb shell am instrument -w com.android.contacts.tests/android.test.InstrumentationTestRunner</pre> 
-<p> </p>运行上面的脚本之后，junit就开始跑了。不过在这之中打断点的话，dvm是不理你的。 
-<p></p> 
-<p>所以我又蛋疼了，蛋疼了就去google了一下，发现在运行instrument的时候还可以加上debug true的option。如下：</p> 
-<p></p> 
-<pre class="brush:shell; toolbar: true; auto-links: false;">adb shell am instrument -w -e debug true true com.android.contacts.tests/android.test.InstrumentationTestRunner</pre> 
-<p> </p> 不过加上之后一运行，发现什么反应都没有，junit也不跑了。断点也没有进入。后来折腾了半天，才找到解决办法。 
-<p></p> 
-<p>过程如下：</p> 
-<p></p> 
-<ol> 
-    <li>启动instrument，并且加上-e debug true。（也就是上面的脚本）。</li> 
-    <li>打断点。估计用终端下打断点和eclipse里面打断点都行。不过我是在终端下打的。</li> 
-    <li>这时候instrument就自己会跑了，遇到断点的地方就会停下来。</li> 
-</ol> 
+          <h2><a name="blog_61529" class="title" href="http://my.oschina.net/u/236164/blog/61529">边运行junit，边调试，蛋疼</a></h2>
+    <p>由于本人是IDE去死团团员， 所以运行junit的方式就变成了</p> 
+    <p></p> 
+    <pre class="brush:shell; toolbar: true; auto-links: false;">adb shell am instrument -w com.android.contacts.tests/android.test.InstrumentationTestRunner</pre> 
+    <p> </p>运行上面的脚本之后，junit就开始跑了。不过在这之中打断点的话，dvm是不理你的。 
+    <p></p> 
+    <p>所以我又蛋疼了，蛋疼了就去google了一下，发现在运行instrument的时候还可以加上debug true的option。如下：</p> 
+    <p></p> 
+    <pre class="brush:shell; toolbar: true; auto-links: false;">adb shell am instrument -w -e debug true true com.android.contacts.tests/android.test.InstrumentationTestRunner</pre> 
+    <p> </p> 不过加上之后一运行，发现什么反应都没有，junit也不跑了。断点也没有进入。后来折腾了半天，才找到解决办法。 
+    <p></p> 
+    <p>过程如下：</p> 
+    <p></p> 
+    <ol> 
+        <li>启动instrument，并且加上-e debug true。（也就是上面的脚本）。</li> 
+        <li>打断点。估计用终端下打断点和eclipse里面打断点都行。不过我是在终端下打的。</li> 
+        <li>这时候instrument就自己会跑了，遇到断点的地方就会停下来。</li> 
+    </ol> 
 </div>

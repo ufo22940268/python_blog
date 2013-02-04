@@ -65,6 +65,7 @@ $/	Session.vim	/^vnoremap $\/ `>a*\/`<i\/*$/;"	m
 $1	Session.vim	/^vnoremap $1 `>a)`<i($/;"	m
 $2	Session.vim	/^vnoremap $2 `>a]`<i[$/;"	m
 $3	Session.vim	/^vnoremap $3 `>a}`<i{$/;"	m
+$c	Session.vim	/^inoremap $c \/**$/;"	m
 $q	Session.vim	/^vnoremap $q `>a'`<i'$/;"	m
 $td	Session.vim	/^cnoremap $td tabnew ~\/Desktop\/$/;"	m
 $th	Session.vim	/^cnoremap $th tabnew ~\/$/;"	m
@@ -155,6 +156,7 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 ,cv	Session.vim	/^nmap <silent> ,cv <Plug>VCSVimDiff$/;"	m
 ,cy	Session.vim	/^nmap ,cy <Plug>NERDCommenterYank$/;"	m
 ,dd	Session.vim	/^noremap ,dd :call DebugInnerOuterContacts()$/;"	m
+,do	Session.vim	/^noremap ,do :call DebugOuterClass()$/;"	m
 ,es	Session.vim	/^nmap ,es :call EditSnippet()$/;"	m
 ,et	Session.vim	/^nmap ,et :exec "e ~\/.vim\/ftplugin\/".&filetype.".vim"$/;"	m
 ,fb	Session.vim	/^noremap ,fb viB:g!#^.*\/\/#Tabularize \/,$/;"	m
@@ -206,8 +208,9 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 ,x	Session.vim	/^nmap ,x :xa!$/;"	m
 ,y	Session.vim	/^map ,y :YRShow$/;"	m
 ,z	Session.vim	/^map ,z <Plug>ZoomWin$/;"	m
+.DEFAULT_GOAL	Makefile	/^.DEFAULT_GOAL := all$/;"	m
 0	Session.vim	/^map 0 ^$/;"	m
-014l	Session.vim	/^normal! 014l$/;"	m
+08l	Session.vim	/^normal! 08l$/;"	m
 <C-Tab>	Session.vim	/^inoremap <C-Tab> 	$/;"	m
 <F2>	Session.vim	/^noremap <F2> :NERDTreeToggle$/;"	m
 <F3>	Session.vim	/^noremap <F3> :NumbersToggle$/;"	m
@@ -242,6 +245,7 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 <Plug>NERDCommenterAlignLeft	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")$/;"	m
 <Plug>NERDCommenterAppend	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")$/;"	m
 <Plug>NERDCommenterComment	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")$/;"	m
+<Plug>NERDCommenterInsert	Session.vim	/^inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")$/;"	m
 <Plug>NERDCommenterInvert	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")$/;"	m
 <Plug>NERDCommenterMinimal	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")$/;"	m
 <Plug>NERDCommenterNested	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")$/;"	m
@@ -302,6 +306,7 @@ $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
 AboutHandler	main.py	/^class AboutHandler(tornado.web.RequestHandler):$/;"	c
 ContentHandler	main.py	/^class ContentHandler(tornado.web.RequestHandler):$/;"	c
 DbToolsTest	tests/test_db_tools.py	/^class DbToolsTest(unittest.TestCase):$/;"	c
+Entity	main.py	/^    class Entity:$/;"	c	class:ContentHandler
 Loader	main.py	/^from tornado.template import Loader$/;"	i
 MainHandler	main.py	/^class MainHandler(tornado.web.RequestHandler):$/;"	c
 ParserTestCase	tests/test_parser.py	/^class ParserTestCase(unittest.TestCase):$/;"	c
@@ -318,11 +323,10 @@ blog_53196	blogs_20130128.html	/^      <h2><a href="#top" class='top'>回到顶�
 blog_53646	blogs_20130128.html	/^      <h2><a href="#top" class='top'>回到顶部<\/a><a name="blog_53646" href="http:\/\/my.oschina.net\/u\/236164\/blog\/53646">看书和上网这两种获取知识的两种效率的对比<\/a><\/h2>$/;"	a
 blog_55980	blogs_20130128.html	/^      <h2><a href="#top" class='top'>回到顶部<\/a><a name="blog_55980" href="http:\/\/my.oschina.net\/u\/236164\/blog\/55980">hhkb已入手，请祖国人民放心<\/a><\/h2>$/;"	a
 blog_57544	blogs_20130128.html	/^      <h2><a href="#top" class='top'>回到顶部<\/a><a name="blog_57544" href="http:\/\/my.oschina.net\/u\/236164\/blog\/57544">vim调试android项目脚本完成<\/a><\/h2>$/;"	a
-blog_61529	blog/2.html	/^      <h2><a name="blog_61529" class="title" href="http:\/\/my.oschina.net\/u\/236164\/blog\/61529">边运行junit，边调试，蛋疼<\/a><\/h2>$/;"	a
+blog_61529	blog/2.html	/^          <h2><a name="blog_61529" class="title" href="http:\/\/my.oschina.net\/u\/236164\/blog\/61529">边运行junit，边调试，蛋疼<\/a><\/h2>$/;"	a
 blog_71559	blog/3.html	/^    <h2><a name="blog_71559" class="title" href="http:\/\/my.oschina.net\/u\/236164\/blog\/71559">android文档查询小工具<\/a><\/h2>$/;"	a
 blog_97086	blog/1.html	/^    <h2><a name="blog_97086" class="title" href="http:\/\/my.oschina.net\/u\/236164\/blog\/97086">喵的，该写一下博客了<\/a><\/h2>$/;"	a
 build_values	main.py	/^    def build_values(self):$/;"	m	class:ContentHandler
-build_values	main.py	/^    def build_values(self):$/;"	m	class:MainHandler
 clear_blog_table	db_tools.py	/^def clear_blog_table():$/;"	f
 codecs	tools/xml_parser.py	/^import codecs$/;"	i
 create_db	db_tools.py	/^def create_db():$/;"	f
@@ -333,32 +337,40 @@ get	main.py	/^    def get(self):$/;"	m	class:AboutHandler
 get	main.py	/^    def get(self):$/;"	m	class:ContentHandler
 get	main.py	/^    def get(self):$/;"	m	class:MainHandler
 get_class	utils/xml_utils.py	/^def get_class(node):$/;"	f
+get_connection	db.py	/^def get_connection():$/;"	f
 get_connection	tools/db.py	/^def get_connection():$/;"	f
 get_title	tools/xml_parser.py	/^def get_title(dom, tag):$/;"	f
 gx	Session.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
 invoke_with_param	tests/test_db_tools.py	/^    def invoke_with_param(self, param):$/;"	m	class:DbToolsTest
 ioloop	main.py	/^import tornado.ioloop$/;"	i
+isBlogType	js/base.js	/^function isBlogType(type) {$/;"	f
 isRequestReady	js/ajax.js	/^function isRequestReady() {$/;"	f
 isRequestReady	js/base.js	/^function isRequestReady() {$/;"	f
 is_argument_valid	db_tools.py	/^def is_argument_valid():$/;"	f
+is_argument_valid	tools.py	/^def is_argument_valid():$/;"	f
 is_html	db_tools.py	/^def is_html(file_path):$/;"	f
 loadContent	js/base.js	/^function loadContent(type) {$/;"	f
 loadXml	js/ajax.js	/^function loadXml() {$/;"	f
-loader	main.py	/^	loader = Loader(".\/")$/;"	v	class:MainHandler
+loader	main.py	/^	loader = Loader(".\/");$/;"	v	class:MainHandler
 methods_dict	db_tools.py	/^methods_dict = dict(update=update_db_for_blog, create=create_db, print_blog=print_blog_table);$/;"	v
+methods_dict	tools.py	/^methods_dict = dict(update=update);$/;"	v
+openBlog	js/base.js	/^function openBlog(blogName) {$/;"	f
 os	db_tools.py	/^import os$/;"	i
 parse	tools/xml_parser.py	/^from xml.dom.minidom import parse$/;"	i
 parse_title	tools/xml_parser.py	/^def parse_title(file_path):$/;"	f
 print_blog_table	db_tools.py	/^def print_blog_table():$/;"	f
 s:cpo_save	Session.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	Session.vim	/^let s:l = 51 - ((30 * winheight(0) + 16) \/ 33)$/;"	v
+s:l	Session.vim	/^let s:l = 63 - ((20 * winheight(0) + 11) \/ 23)$/;"	v
 s:so_save	Session.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
 s:sx	Session.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
 s:wipebuf	Session.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+sqlite3	db.py	/^import sqlite3$/;"	i
 sqlite3	db_tools.py	/^import sqlite3$/;"	i
+sqlite3	main.py	/^import sqlite3$/;"	i
 sqlite3	tools/db.py	/^import sqlite3$/;"	i
 subprocess	tests/test_db_tools.py	/^import subprocess$/;"	i
 sys	db_tools.py	/^import sys$/;"	i
+sys	tools.py	/^import sys$/;"	i
 test_create_db	tests/test_db_tools.py	/^    def test_create_db(self):$/;"	m	class:DbToolsTest
 test_not_valid	tests/test_db_tools.py	/^    def test_not_valid(self):$/;"	m	class:DbToolsTest
 test_parse_title1	tests/test_parser.py	/^    def test_parse_title1(self):$/;"	m	class:ParserTestCase
@@ -371,6 +383,7 @@ tornado	main.py	/^import tornado.ioloop$/;"	i
 tornado	main.py	/^import tornado.web$/;"	i
 unittest	tests/test_db_tools.py	/^import unittest$/;"	i
 unittest	tests/test_parser.py	/^import unittest$/;"	i
+update	tools.py	/^def update():$/;"	f
 update_db	db_tools.py	/^def update_db(folder):$/;"	f
 update_db_for_blog	db_tools.py	/^def update_db_for_blog():$/;"	f
 update_db_for_tests	db_tools.py	/^def update_db_for_tests():$/;"	f
@@ -378,8 +391,8 @@ urlskip	static/licenses.html	/^<p><a name="urlskip"><\/a>Stable links to each li
 web	main.py	/^import tornado.web$/;"	i
 xmlReq	js/ajax.js	/^var xmlReq;$/;"	v
 xmlReq	js/base.js	/^var xmlReq;$/;"	v
-xmlReq.onreadystatechange	js/ajax.js	/^    xmlReq.onreadystatechange = function() {$/;"	f
-xmlReq.onreadystatechange	js/base.js	/^    xmlReq.onreadystatechange = function () {$/;"	f
+xmlReq.onreadystatechange	js/ajax.js	/^    }$/;"	f
+xmlReq.onreadystatechange	js/base.js	/^    }$/;"	f
 xml_parser	db_tools.py	/^import tools.xml_parser$/;"	i
 xml_parser	tests/test_parser.py	/^from tools import xml_parser$/;"	i
 yS	Session.vim	/^nmap yS <Plug>YSurround$/;"	m

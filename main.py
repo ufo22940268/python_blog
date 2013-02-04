@@ -45,6 +45,7 @@ application = tornado.web.Application([
     (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./static/"}),
     (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./css/"}),
     (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js/"}),
+    (r"/blog/(.*)", tornado.web.StaticFileHandler, {"path": "./blog/"}),
     ]);
 
 if __name__ == "__main__":
