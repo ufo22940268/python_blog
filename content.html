@@ -1,3 +1,3 @@
 {% for entity in entities %}
-<a id="title1" href="{{ entity.url }}">{{ entity.content }}</a></br>
+<a id="title1" onclick="loadContent('{{ entity.url }}')">{{ entity.content }}</a></br>
 {% end %}

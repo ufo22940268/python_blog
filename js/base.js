@@ -4,9 +4,8 @@ function isRequestReady() {
     return xmlReq.status == 200 && xmlReq.readyState == 4;
 }
 
-function openBlog(blogName) {
-    xmlReq.open("GET", "blog/" + blogName + ".html", true);
-}
+function openBlog(blogUrl) {
+    xmlReq.open("GET", blogUrl, true); }
 
 function loadContent(type) {
     if (window.XMLHttpRequest) {
@@ -19,20 +18,16 @@ function loadContent(type) {
         }
     };
 
-    if (isBlogType(type)) {
-        openBlog(type);
+    if (type == "about") {
+        xmlReq.open("GET", "static/about.html", true);
+    } else if (type == "content") {
+        xmlReq.open("GET", "content.html", true);
+    } else if (type == "tags") {
+        xmlReq.open("GET", "static/tags.html", true);
     } else {
-        if (type == "about") {
-            xmlReq.open("GET", "static/about.html", true);
-        } else if (type == "content") {
-            xmlReq.open("GET", "content.html", true);
-        } else if (type == "tags") {
-            xmlReq.open("GET", "static/tags.html", true);
-        } else {
-            alert("Invalid type.");
-            return;
-        }
+        openBlog(type);
     }
+
     xmlReq.send();
 }
 
